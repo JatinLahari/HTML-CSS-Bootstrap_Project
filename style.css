@@ -15,10 +15,6 @@
   .nav-link:hover {
     color: var(--red);
   }
-  .navbar-nav{
-    font-weight: 450;
-    font-size: 14px;
-  }
   /*! ------------- 2- CAROUSEL --------------- */
   .carousel-item {
     max-height: calc(100vh - 88px);
