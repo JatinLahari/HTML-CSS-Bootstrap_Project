@@ -4,6 +4,63 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Custom CSS for navbar */
+      .navbar {
+        padding: 0.8rem 1rem;
+        background: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link {
+        color: #333 !important;
+        font-weight: 500;
+        margin: 0 0.8rem;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link.active {
+        color: #dc3545 !important;
+      }
+
+      .nav-link:hover {
+        color: #dc3545 !important;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #dc3545;
+        transition: width 0.8s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .navbar-brand .logo {
+        height: 40px;
+        transition: transform 0.3s ease;
+      }
+
+      .navbar-brand:hover .logo {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 991.98px) {
+        .navbar-collapse {
+          padding: 1rem 0;
+        }
+        .nav-link {
+          margin: 0.5rem 0;
+        }
+      }
+    </style>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -23,7 +80,6 @@
 
   <body id="body">
     <!-- NAVBAR -->
-     <!-- NAVBAR -->
 
     <!-- <nav class="navbar navbar-expand-lg bg-danger bg-gradient navbar-dark"> -->
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -43,150 +99,179 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto me-1 mb-2 mb-lg-0 fs-6">
                   <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="about.html">about</a>
+                    <a class="nav-link active" aria-current="page" href="about.html">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="student.html">students</a>
+                    <a class="nav-link" href="student.html">Students</a>
+                  </li>
+                  <li class="nav-item">   
+                    <a class="nav-link" href="#courses">Courses</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#courses">courses</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#contact">contact</a>
+                    <a class="nav-link" href="#contact">Contact</a>
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
+      
     <!-- MAIN CONTENT -->
     <main class="text-center">
-        <section class="container bg-light p-5">
-          <h2 class="display-4 text-danger mb-4">About Clarusway</h2>
-          
-          <!-- History Section -->
-          <div class="row align-items-center mb-5 g-5">
-            <div class="col-md-6">
-              <div class="card shadow">
-                <div class="card-body">
-                  <h3 class="text-danger">Our Story</h3>
-                  <p class="lead">
-                    Founded in 2019, Clarusway has quickly become a leader in IT education, 
-                    transforming lives through intensive courses and career development programs.
+      <section class="container bg-light p-5">
+        <h2 class="display-4 text-danger mb-4">About Clarusway</h2>
+
+        <!-- History Section -->
+        <div class="row align-items-center mb-5 g-5">
+          <div class="col-md-6">
+            <div class="card shadow">
+              <div class="card-body">
+                <h3 class="text-danger">Our Story</h3>
+                <p class="lead">
+                  Founded in 2019, Clarusway has quickly become a leader in IT
+                  education, transforming lives through intensive courses and
+                  career development programs.
+                </p>
+                <div class="row text-start mt-4">
+                  <div class="col-6">
+                    <i class="fas fa-user-graduate fa-2x text-danger"></i>
+                    <h5>5000+ Graduates</h5>
+                  </div>
+                  <div class="col-6">
+                    <i class="fas fa-briefcase fa-2x text-danger"></i>
+                    <h5>85% Hire Rate</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="./img/about-history.jpeg"
+              class="img-fluid rounded"
+              alt="Our History"
+            />
+          </div>
+        </div>
+
+        <!-- Team Section (from index.html instructors concept) -->
+        <h3 class="text-danger mb-4">Leadership Team</h3>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-3">
+            <div class="card shadow">
+              <img src="./img/leader1.jpg" class="card-img-top" alt="CEO" />
+              <div class="card-body">
+                <h5>John Doe</h5>
+                <p class="text-muted">CEO & Founder</p>
+                <div class="socials d-flex justify-content-around">
+                  <i class="fab fa-linkedin text-danger"></i>
+                  <i class="fab fa-twitter text-danger"></i>
+                  <i class="fas fa-envelope text-danger"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add more team members similarly -->
+        </div>
+
+        <!-- Success Stories (from index.html students section) -->
+        <div class="row mt-5 g-4 align-items-center">
+          <div class="col-md-6 order-md-2">
+            <div class="card shadow">
+              <div class="card-body">
+                <i class="fas fa-quote-left fa-2x text-danger"></i>
+                <blockquote class="blockquote mt-3">
+                  <p>
+                    "Clarusway changed my life! Within 6 months I transitioned
+                    from retail to a six-figure tech job."
                   </p>
-                  <div class="row text-start mt-4">
-                    <div class="col-6">
-                      <i class="fas fa-user-graduate fa-2x text-danger"></i>
-                      <h5>5000+ Graduates</h5>
-                    </div>
-                    <div class="col-6">
-                      <i class="fas fa-briefcase fa-2x text-danger"></i>
-                      <h5>85% Hire Rate</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <img src="./img/about-history.jpeg" class="img-fluid rounded" alt="Our History">
-            </div>
-          </div>
-  
-          <!-- Team Section (from index.html instructors concept) -->
-          <h3 class="text-danger mb-4">Leadership Team</h3>
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-6 col-lg-3">
-              <div class="card shadow">
-                <img src="./img/leader1.jpg" class="card-img-top" alt="CEO">
-                <div class="card-body">
-                  <h5>John Doe</h5>
-                  <p class="text-muted">CEO & Founder</p>
-                  <div class="socials d-flex justify-content-around">
-                    <i class="fab fa-linkedin text-danger"></i>
-                    <i class="fab fa-twitter text-danger"></i>
-                    <i class="fas fa-envelope text-danger"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Add more team members similarly -->
-          </div>
-  
-          <!-- Success Stories (from index.html students section) -->
-          <div class="row mt-5 g-4 align-items-center">
-            <div class="col-md-6 order-md-2">
-              <div class="card shadow">
-                <div class="card-body">
-                  <i class="fas fa-quote-left fa-2x text-danger"></i>
-                  <blockquote class="blockquote mt-3">
-                    <p>"Clarusway changed my life! Within 6 months I transitioned from retail to a six-figure tech job."</p>
-                    <footer class="blockquote-footer">Sarah Johnson, AWS Solutions Architect</footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 order-md-1">
-              <img src="./img/success-story.jpeg" class="img-fluid rounded" alt="Success Story">
-            </div>
-          </div>
-  
-          <!-- Course Highlights (from index.html courses section) -->
-          <h3 class="text-danger mt-5">Our Programs</h3>
-          <div class="row g-4">
-            <div class="col-md-4">
-              <div class="card h-100 shadow">
-                <img src="./img/thumbnail/fs1.jpg" class="card-img-top" alt="Full Stack">
-                <div class="card-body">
-                  <h5>Full Stack Development</h5>
-                  <p>Become a proficient full stack developer in 6 months</p>
-                  <button class="btn btn-outline-danger">Learn More</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow">
-                  <img src="./img/thumbnail/ds1.jpg" class="card-img-top" alt="Full Stack">
-                  <div class="card-body">
-                    <h5>Data Science</h5>
-                    <p>Become a proficient Data Scientist in 1 year</p>
-                    <button class="btn btn-outline-danger">Learn More</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card h-100 shadow">
-                  <img src="./img/devops.jpg" class="card-img-top" alt="Full Stack">
-                  <div class="card-body">
-                    <h5>DevOps Engineer</h5>
-                    <p>Become a proficient DevOps Engineer in 8 months</p>
-                    <button class="btn btn-outline-danger">Learn More</button>
-                  </div>
-                </div>
-              </div>
-            <!-- Add more program cards -->
-          </div>
-  
-          <!-- Contact CTA (from index.html contact section) -->
-          <div class="card mt-5 shadow">
-            <div class="card-body bg-danger text-white">
-              <h3>Ready to Start Your Journey?</h3>
-              <p>Contact us for more information or apply today!</p>
-              <div class="row g-3 justify-content-center">
-                <div class="col-auto">
-                  <a href="index.html#contact" class="btn btn-light">Contact Us</a>
-                </div>
-                <div class="col-auto">
-                  <a href="#" class="btn btn-outline-light">Apply Now</a>
-                </div>
+                  <footer class="blockquote-footer">
+                    Sarah Johnson, AWS Solutions Architect
+                  </footer>
+                </blockquote>
               </div>
             </div>
           </div>
-        </section>
-      </main>
+          <div class="col-md-6 order-md-1">
+            <img
+              src="./img/success-story.jpeg"
+              class="img-fluid rounded"
+              alt="Success Story"
+            />
+          </div>
+        </div>
+
+        <!-- Course Highlights (from index.html courses section) -->
+        <h3 class="text-danger mt-5">Our Programs</h3>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 shadow">
+              <img
+                src="./img/thumbnail/fs1.jpg"
+                class="card-img-top"
+                alt="Full Stack"
+              />
+              <div class="card-body">
+                <h5>Full Stack Development</h5>
+                <p>Become a proficient full stack developer in 6 months</p>
+                <button class="btn btn-outline-danger">Learn More</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow">
+              <img
+                src="./img/thumbnail/ds1.jpg"
+                class="card-img-top"
+                alt="Full Stack"
+              />
+              <div class="card-body">
+                <h5>Data Science</h5>
+                <p>Become a proficient Data Scientist in 1 year</p>
+                <button class="btn btn-outline-danger">Learn More</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow">
+              <img
+                src="./img/devops.jpg"
+                class="card-img-top"
+                alt="Full Stack"
+              />
+              <div class="card-body">
+                <h5>DevOps Engineer</h5>
+                <p>Become a proficient DevOps Engineer in 8 months</p>
+                <button class="btn btn-outline-danger">Learn More</button>
+              </div>
+            </div>
+          </div>
+          <!-- Add more program cards -->
+        </div>
+
+        <!-- Contact CTA (from index.html contact section) -->
+        <div class="card mt-5 shadow">
+          <div class="card-body bg-danger text-white">
+            <h3>Ready to Start Your Journey?</h3>
+            <p>Contact us for more information or apply today!</p>
+            <div class="row g-3 justify-content-center">
+              <div class="col-auto">
+                <a href="index.html#contact" class="btn btn-light"
+                  >Contact Us</a
+                >
+              </div>
+              <div class="col-auto">
+                <a href="#" class="btn btn-outline-light">Apply Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="bg-dark text-center text-white p-4">
