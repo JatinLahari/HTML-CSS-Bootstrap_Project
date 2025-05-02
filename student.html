@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Feedback - Clarusway</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <style>
+      /* Animation Keyframes */
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .student-card {
+        animation: slideIn 0.6s ease-out forwards;
+        opacity: 0;
+        animation-delay: calc(var(--index) * 0.2s);
+      }
+
+      .feedback-content {
+        max-height: 100px;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        position: relative;
+      }
+
+      .feedback-content::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background: linear-gradient(to bottom, transparent, white);
+      }
+
+      .read-more:checked ~ .feedback-content {
+        max-height: 500px;
+      }
+
+      .read-more:checked ~ .feedback-content::after {
+        display: none;
+      }
+
+      .read-more-label::before {
+        content: "Read More";
+      }
+
+      .read-more:checked + .read-more-label::before {
+        content: "Read Less";
+      }
+
+      .student-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR (same structure as previous pages) -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="./img/CLARUSWAY_LOGO.png" alt="logo" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="student.html">Students</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#courses">Courses</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <main class="container my-5">
+      <h2 class="text-center text-danger mb-5 display-4">
+        Student Success Stories
+      </h2>
+
+      <div class="row g-4">
+        <!-- Student 1 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 0">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s1.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">Sarah Johnson</h5>
+              <span class="badge bg-danger">FS</span>
+              <input type="checkbox" class="read-more d-none" id="read-1" />
+              <div class="feedback-content mt-3">
+                <p>
+                  Clarusway transformed my career! The hands-on projects
+                  prepared me perfectly for real-world challenges. I landed a
+                  developer job before graduation!
+                </p>
+              </div>
+              <label
+                for="read-1"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 2 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 1">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s2.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">Mike Chen</h5>
+              <span class="badge bg-danger">DS</span>
+              <input type="checkbox" class="read-more d-none" id="read-2" />
+              <div class="feedback-content mt-3">
+                <p>
+                  The data science program exceeded my expectations. The
+                  instructors' industry experience made all the difference in my
+                  learning journey.
+                </p>
+              </div>
+              <label
+                for="read-2"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 3 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 2">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s3.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">Emma Wilson</h5>
+              <span class="badge bg-danger">DEVOPS</span>
+              <input type="checkbox" class="read-more d-none" id="read-3" />
+              <div class="feedback-content mt-3">
+                <p>
+                  The DevOps program gave me the exact skills I needed to
+                  transition into cloud engineering. The hands-on labs with AWS
+                  were invaluable!
+                </p>
+              </div>
+              <label
+                for="read-3"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 4 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 3">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s4.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">David Miller</h5>
+              <span class="badge bg-danger">FS</span>
+              <input type="checkbox" class="read-more d-none" id="read-4" />
+              <div class="feedback-content mt-3">
+                <p>
+                  From zero coding experience to full-stack developer in 6
+                  months! The project-based learning approach made all the
+                  difference.
+                </p>
+              </div>
+              <label
+                for="read-4"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 5 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 4">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s5.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">Sophia Rodriguez</h5>
+              <span class="badge bg-danger">DS</span>
+              <input type="checkbox" class="read-more d-none" id="read-5" />
+              <div class="feedback-content mt-3">
+                <p>
+                  The data science curriculum was perfectly balanced between
+                  theory and practice. I especially appreciated the real-world
+                  dataset projects.
+                </p>
+              </div>
+              <label
+                for="read-5"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 6 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 5">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s6.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">James Brown</h5>
+              <span class="badge bg-danger">FS</span>
+              <input type="checkbox" class="read-more d-none" id="read-6" />
+              <div class="feedback-content mt-3">
+                <p>
+                  Amazing career support! The mock interviews and resume
+                  workshops helped me land my dream job at a FAANG company.
+                </p>
+              </div>
+              <label
+                for="read-6"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 7 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 6">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s7.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">Olivia Smith</h5>
+              <span class="badge bg-danger">DEVOPS</span>
+              <input type="checkbox" class="read-more d-none" id="read-7" />
+              <div class="feedback-content mt-3">
+                <p>
+                  The CI/CD pipeline projects were game-changers. I now
+                  implement professional deployment strategies at my new DevOps
+                  position.
+                </p>
+              </div>
+              <label
+                for="read-7"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 8 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 7">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s8.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">Liam Johnson</h5>
+              <span class="badge bg-danger">DS</span>
+              <input type="checkbox" class="read-more d-none" id="read-8" />
+              <div class="feedback-content mt-3">
+                <p>
+                  The machine learning modules were incredibly comprehensive. I
+                  particularly enjoyed the NLP specialization track.
+                </p>
+              </div>
+              <label
+                for="read-8"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 9 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 8">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s9.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">Ava Williams</h5>
+              <span class="badge bg-danger">FS</span>
+              <input type="checkbox" class="read-more d-none" id="read-9" />
+              <div class="feedback-content mt-3">
+                <p>
+                  The React and Node.js modules were perfectly structured. I
+                  built a portfolio that impressed multiple employers!
+                </p>
+              </div>
+              <label
+                for="read-9"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 10 -->
+        <div class="col-md-6 col-lg-4 student-card" style="--index: 9">
+          <div class="card h-100 shadow">
+            <img
+              src="./img/s10.jpg"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="text-danger">Noah Davis</h5>
+              <span class="badge bg-danger">DEVOPS</span>
+              <input type="checkbox" class="read-more d-none" id="read-10" />
+              <div class="feedback-content mt-3">
+                <p>
+                  The Kubernetes and Docker deep dives were exceptional. I now
+                  manage cloud infrastructure for a major e-commerce platform.
+                </p>
+              </div>
+              <label
+                for="read-10"
+                class="read-more-label btn btn-link text-danger mt-2"
+              ></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER (same as previous pages) -->
+    <footer class="bg-dark text-center text-white p-4">
+      <article>
+        <a href="#"> <i class="fab fa-facebook-f"></i></a>
+        <a href="#"> <i class="fab fa-youtube"></i></a>
+        <a href="#"> <i class="fab fa-linkedin"></i></a>
+        <a href="#"> <i class="fab fa-instagram"></i></a>
+      </article>
+
+      <article class="p-4 h6">
+        &copy
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Copyright by Clarusway
+      </article>
+    </footer>
+
+    <!-- UP-BTN -->
+    <a class="btn-up" href="#body">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </body>
+</html>
